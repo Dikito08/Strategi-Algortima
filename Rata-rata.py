@@ -1,3 +1,5 @@
+import timeit
+
 # meminta pengguna untuk memasukkan jumlah bilangan
 jumlah_bilangan = int(input("Masukkan jumlah bilangan: "))
 
@@ -8,16 +10,14 @@ for i in range(jumlah_bilangan):
     bilangan_list.append(bilangan)
 
 # menghitung rata-rata
+start_time = timeit.default_timer()
+
 jumlah = sum(bilangan_list)
 rata_rata = jumlah / len(bilangan_list)
 
-# menampilkan hasil rata-rata
+end_time = timeit.default_timer()
+total_waktu = (end_time - start_time) * 1000
+
+# menampilkan hasil rata-rata dan waktu yang dibutuhkan
 print("Rata-rata dari bilangan", bilangan_list, "adalah", rata_rata)
-
-# mencari nilai maksimum dan minimum
-nilai_max = max(bilangan_list)
-nilai_min = min(bilangan_list)
-
-# menampilkan hasil nilai maksimum dan minimum
-print("Nilai maksimum dari bilangan", bilangan_list, "adalah", nilai_max)
-print("Nilai minimum dari bilangan", bilangan_list, "adalah", nilai_min)
+print("Waktu yang dibutuhkan untuk menghitung rata-rata adalah", total_waktu, "milisecond")
